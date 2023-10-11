@@ -20,5 +20,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  envPrefix: 'ATHAIA_'
+  envPrefix: 'ATHAIA_',
+  server: { port: 3000 }
 });
