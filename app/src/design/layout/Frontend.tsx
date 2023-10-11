@@ -4,15 +4,13 @@ import { Button, Container, Dropdown, IconButton, ListItemDecorator, Menu, MenuB
 
 import { useAuth } from '@/hooks';
 
-import AmaranthIcon, { aiArrowRightToBracket, aiCircleHalfInner, aiCirclePerson, aiGauge, aiMoon, aiSun } from '@studio384/amaranth';
+import AmaranthIcon, { aiArrowRightFromBracket, aiArrowRightToBracket, aiCircleHalfInner, aiCirclePerson, aiHouse, aiMoon, aiSun } from '@studio384/amaranth';
 
-export default function Layout() {
+export default function Frontend() {
   const navigate = useNavigate();
 
   const { mode, setMode } = useColorScheme();
-  const { user, logout } = useAuth({ middleware: 'auth' });
-
-  console.log(user);
+  const { user, logout } = useAuth({ middleware: 'guest' });
 
   return (
     <>
@@ -20,18 +18,26 @@ export default function Layout() {
         <Container>
           <Stack direction="row" justifyContent="space-between" gap={1} sx={{ py: 1.5 }}>
             <Stack direction="row" gap={1}>
-              <Button variant="plain" color="neutral" size="sm" startDecorator={<AmaranthIcon icon={aiGauge} />} onClick={() => navigate('/dashboard')}>
-                Dashboard
+              <Button variant="plain" color="neutral" size="sm" startDecorator={<AmaranthIcon icon={aiHouse} />} onClick={() => navigate('/')}>
+                Home
               </Button>
             </Stack>
-            <Stack direction="row" gap={1}>
-              <IconButton variant="outlined" size="sm" onClick={() => navigate('/profile')}>
-                <AmaranthIcon icon={aiCirclePerson} />
-              </IconButton>
-              <IconButton variant="outlined" size="sm" onClick={logout}>
-                <AmaranthIcon icon={aiArrowRightToBracket} />
-              </IconButton>
-            </Stack>
+            {user ? (
+              <Stack direction="row" gap={1}>
+                <IconButton variant="outlined" size="sm" onClick={() => navigate('/profile')}>
+                  <AmaranthIcon icon={aiCirclePerson} />
+                </IconButton>
+                <IconButton variant="outlined" size="sm" onClick={logout}>
+                  <AmaranthIcon icon={aiArrowRightFromBracket} />
+                </IconButton>
+              </Stack>
+            ) : (
+              <Stack direction="row" gap={1}>
+                <IconButton variant="outlined" size="sm" onClick={() => navigate('/login')}>
+                  <AmaranthIcon icon={aiArrowRightToBracket} />
+                </IconButton>
+              </Stack>
+            )}
           </Stack>
         </Container>
       </Sheet>

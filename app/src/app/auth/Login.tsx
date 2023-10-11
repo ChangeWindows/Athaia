@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Checkbox, FormControl, Stack, Typography } from '@mui/joy';
+import { Button, Checkbox, Divider, FormControl, Stack, Typography } from '@mui/joy';
 
 import TextField from '@/design/components/TextField';
 import { useAuth } from '@/hooks';
 
-import AmaranthIcon, { aiArrowRightToBracket, aiShieldKeyhole } from '@studio384/amaranth';
+import AmaranthIcon, { aiArrowRightToBracket, aiPersonPlus, aiShieldKeyhole } from '@studio384/amaranth';
 
 import SessionStatus from './_SessionStatus';
 
@@ -78,6 +78,10 @@ export default function Login() {
             Login
           </Button>
         </Stack>
+        <Divider>or</Divider>
+        <Button variant="outlined" color="primary" startDecorator={<AmaranthIcon icon={aiPersonPlus} />} onClick={() => navigate('/register')}>
+          Create an account
+        </Button>
       </Stack>
     </form>
   );

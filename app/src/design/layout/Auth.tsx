@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import { Sheet, Stack, Typography } from '@mui/joy';
+import { Sheet, Stack } from '@mui/joy';
 
 export default function Auth() {
   return (

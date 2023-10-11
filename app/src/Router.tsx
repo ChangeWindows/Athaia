@@ -1,15 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Home from './app/Home';
-import Layout from './design/layout/Layout';
+import Admin from './design/layout/Admin';
 import Login from './app/auth/Login';
 import Auth from './design/layout/Auth';
 import Dashboard from './app/admin/Dashboard';
 import Profile from './app/profile/Profile';
+import ForgotPassword from './app/auth/ForgotPassword';
+import Register from './app/auth/Register';
+import VerifyEmail from './app/auth/VerifyEmail';
+import Frontend from './design/layout/Frontend';
 
 const router = createBrowserRouter([
   {
-    element: <Layout />,
+    element: <Frontend />,
     children: [
       {
         path: '/',
@@ -22,7 +26,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    element: <Layout />,
+    element: <Admin />,
     children: [
       {
         path: '/dashboard',
@@ -36,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />
+      },
+      {
+        path: '/register',
+        element: <Register />
+      },
+      {
+        path: '/verify-email',
+        element: <VerifyEmail />
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />
       }
     ]
   },
