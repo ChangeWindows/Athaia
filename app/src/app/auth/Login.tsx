@@ -19,7 +19,7 @@ export default function Login() {
 
   const { login } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard'
+    redirectIfAuthenticated: '/'
   });
 
   const submitForm = async (event) => {

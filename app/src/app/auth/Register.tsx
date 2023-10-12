@@ -16,7 +16,7 @@ export default function Register() {
 
   const { register } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard'
+    redirectIfAuthenticated: '/'
   });
 
   const submitForm = async (event) => {

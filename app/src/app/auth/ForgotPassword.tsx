@@ -19,7 +19,7 @@ export default function ForgotPassword() {
 
   const { forgotPassword } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/dashboard'
+    redirectIfAuthenticated: '/'
   });
 
   const submitForm = async (event) => {

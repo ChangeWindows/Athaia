@@ -12,7 +12,7 @@ export default function VerifyEmail() {
   const [status, setStatus] = useState(null);
   const { logout, resendEmailVerification } = useAuth({
     middleware: 'auth',
-    redirectIfAuthenticated: '/dashboard'
+    redirectIfAuthenticated: '/'
   });
 
   return (
