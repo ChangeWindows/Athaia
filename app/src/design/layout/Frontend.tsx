@@ -4,7 +4,16 @@ import { Button, Container, Dropdown, IconButton, ListItemDecorator, Menu, MenuB
 
 import { useAuth } from '@/hooks';
 
-import AmaranthIcon, { aiArrowRightFromBracket, aiArrowRightToBracket, aiCircleHalfInner, aiCirclePerson, aiHouse, aiMoon, aiSun } from '@studio384/amaranth';
+import AmaranthIcon, {
+  aiArrowRightFromBracket,
+  aiArrowRightToBracket,
+  aiCircleHalfInner,
+  aiCirclePerson,
+  aiGauge,
+  aiHouse,
+  aiMoon,
+  aiSun
+} from '@studio384/amaranth';
 
 export default function Frontend() {
   const navigate = useNavigate();
@@ -24,6 +33,9 @@ export default function Frontend() {
             </Stack>
             {user ? (
               <Stack direction="row" gap={1}>
+                <IconButton variant="outlined" size="sm" onClick={() => navigate('/admin/dashboard')}>
+                  <AmaranthIcon icon={aiGauge} />
+                </IconButton>
                 <IconButton variant="outlined" size="sm" onClick={() => navigate('/profile')}>
                   <AmaranthIcon icon={aiCirclePerson} />
                 </IconButton>

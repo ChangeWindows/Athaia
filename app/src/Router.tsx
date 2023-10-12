@@ -10,6 +10,7 @@ import ForgotPassword from './app/auth/ForgotPassword';
 import Register from './app/auth/Register';
 import VerifyEmail from './app/auth/VerifyEmail';
 import Frontend from './design/layout/Frontend';
+import ResetPassword from './app/auth/ResetPassword';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     element: <Admin />,
     children: [
       {
-        path: '/dashboard',
+        path: '/admin/dashboard',
         element: <Dashboard />
       }
     ]
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: '/forgot-password',
         element: <ForgotPassword />
+      },
+      {
+        path: '/reset-password/:token',
+        element: <ResetPassword />
       }
     ]
   },

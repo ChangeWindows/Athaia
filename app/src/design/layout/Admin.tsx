@@ -10,9 +10,7 @@ export default function Admin() {
   const navigate = useNavigate();
 
   const { mode, setMode } = useColorScheme();
-  const { user, logout } = useAuth({ middleware: 'auth' });
-
-  console.log(user);
+  const { logout } = useAuth({ middleware: 'auth' });
 
   return (
     <>
@@ -23,7 +21,7 @@ export default function Admin() {
               <IconButton variant="plain" color="neutral" size="sm" onClick={() => navigate('/')}>
                 <AmaranthIcon icon={aiHouse} />
               </IconButton>
-              <Button variant="plain" color="neutral" size="sm" startDecorator={<AmaranthIcon icon={aiGauge} />} onClick={() => navigate('/dashboard')}>
+              <Button variant="plain" color="neutral" size="sm" startDecorator={<AmaranthIcon icon={aiGauge} />} onClick={() => navigate('/admin/dashboard')}>
                 Dashboard
               </Button>
             </Stack>

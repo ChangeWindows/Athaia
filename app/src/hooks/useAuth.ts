@@ -79,7 +79,7 @@ const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
     setStatus(null);
 
     axios
-      .post('/reset-password', { token: navigate.query.token, ...props })
+      .post('/reset-password', { ...props })
       .then((response) => navigate('/login?reset=' + btoa(response.data.status)))
       .catch((error) => {
         if (error.response.status !== 422) throw error;
